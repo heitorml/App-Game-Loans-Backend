@@ -1,0 +1,9 @@
+C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Application\bin\Debug\netcoreapp3.1\AppGameLoans.Application.deps.json
+C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Application\bin\Debug\netcoreapp3.1\AppGameLoans.Application.dll
+C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Application\bin\Debug\netcoreapp3.1\AppGameLoans.Application.pdb
+C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Application\obj\Debug\netcoreapp3.1\AppGameLoans.Application.csprojAssemblyReference.cache
+C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Application\obj\Debug\netcoreapp3.1\AppGameLoans.Application.AssemblyInfoInputs.cache
+C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Application\obj\Debug\netcoreapp3.1\AppGameLoans.Application.AssemblyInfo.cs
+C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Application\obj\Debug\netcoreapp3.1\AppGameLoans.Application.csproj.CoreCompileInputs.cache
+C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Application\obj\Debug\netcoreapp3.1\AppGameLoans.Application.dll
+C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Application\obj\Debug\netcoreapp3.1\AppGameLoans.Application.pdb
