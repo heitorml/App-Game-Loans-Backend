@@ -12,6 +12,7 @@ namespace AppGameLoans.Utilities.Extension
             services.AddDbContext<GameLoansDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
                     .UseLazyLoadingProxies());
+
         }
     }
 }
