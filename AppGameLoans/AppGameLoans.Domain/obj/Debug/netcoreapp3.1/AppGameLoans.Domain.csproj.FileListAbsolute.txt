@@ -1,9 +1,0 @@
-C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Domain\bin\Debug\netcoreapp3.1\AppGameLoans.Domain.deps.json
-C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Domain\bin\Debug\netcoreapp3.1\AppGameLoans.Domain.dll
-C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Domain\bin\Debug\netcoreapp3.1\AppGameLoans.Domain.pdb
-C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Domain\obj\Debug\netcoreapp3.1\AppGameLoans.Domain.csprojAssemblyReference.cache
-C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Domain\obj\Debug\netcoreapp3.1\AppGameLoans.Domain.AssemblyInfoInputs.cache
-C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Domain\obj\Debug\netcoreapp3.1\AppGameLoans.Domain.AssemblyInfo.cs
-C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Domain\obj\Debug\netcoreapp3.1\AppGameLoans.Domain.csproj.CoreCompileInputs.cache
-C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Domain\obj\Debug\netcoreapp3.1\AppGameLoans.Domain.dll
-C:\PROJETOS\Teste-Invillia\App-Game-Loans-Backend\AppGameLoans\AppGameLoans.Domain\obj\Debug\netcoreapp3.1\AppGameLoans.Domain.pdb
