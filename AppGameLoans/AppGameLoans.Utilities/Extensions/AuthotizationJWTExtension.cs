@@ -10,6 +10,7 @@ using AppGameLoans.Utilities.Util;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using AppGameLoans.Services.Util;
 
 namespace AppGameLoans.Utilities.Extension
 {
@@ -53,15 +54,15 @@ namespace AppGameLoans.Utilities.Extension
 
             }).AddJwtBearer(options =>
             {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = false,
+
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = configuration.GetKey("JwtToken:Issuer"),
-                    ValidAudience = configuration.GetKey("JwtToken:Issuer"),
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetKey("JwtToken:SecretKey")))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SettingsToken.Secret)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
                 };
             });
         }

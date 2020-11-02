@@ -11,6 +11,7 @@ namespace AppGameLoans.Domain.Interfaces.Services
         Task<Result> UpdateUser(User user);
         Task<Result> GetUsers();
         Task<Result> GetUserById(Guid idUser);
-        Task<Result> DeleteUsern(Guid idUser);
+        Task<Result> DeleteUser(Guid idUser);
+        Task<User> GetUserByLogin(User user);
     }
 }

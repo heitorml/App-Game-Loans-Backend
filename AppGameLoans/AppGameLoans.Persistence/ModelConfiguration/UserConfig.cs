@@ -12,7 +12,8 @@ namespace AppGameLoans.Persistence.ModelConfiguration
         {
             builder.ToTable(nameof(User));
             builder.HasKey(h => h.Id);
-            builder.Property(h => h.Email);
+            builder.Property(h => h.Email).IsRequired();
+            builder.Property(h => h.Profile).IsRequired();
             builder.Property(h => h.CreationDate).IsRequired();
             builder.Property(h => h.Name).IsRequired();
             builder.Property(h => h.Password).IsRequired();

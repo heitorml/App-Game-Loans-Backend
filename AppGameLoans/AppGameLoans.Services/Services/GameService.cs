@@ -31,24 +31,67 @@ namespace AppGameLoans.Services.Services
             return result;
         }
 
-        public Task<Result> DeleteGame(Guid idGame)
+        public async Task<Result> DeleteGame(Guid idGame)
         {
-            throw new NotImplementedException();
+            var result = new Result();
+            try
+            {
+                await _repository.RemoveByIdAsync(idGame);
+                result.ReturnInsert(idGame);
+            }
+            catch (Exception e)
+            {
+                result.WithError(e.Message);
+            }
+            return result;
         }
 
-        public Task<Result> GetGameById(Guid idGame)
+        public async Task<Result> GetGameById(Guid idGame)
         {
-            throw new NotImplementedException();
+            var result = new Result();
+            try
+            {
+                var game = await _repository.GetByIdAsync(idGame);
+                result.ReturnInsert(game);
+            }
+            catch (Exception e)
+            {
+                result.WithError(e.Message);
+            }
+            return result;
         }
 
-        public Task<Result> GetGames()
+        public async Task<Result> GetGames()
         {
-            throw new NotImplementedException();
+            var result = new Result();
+            try
+            {
+                var games = await _repository.GetAllAsync();
+                result.ReturnInsert(games);
+            }
+            catch (Exception e)
+            {
+                result.WithError(e.Message);
+            }
+            return result;
         }
 
-        public Task<Result> UpdateGame(Game game)
+        public async Task<Result> UpdateGame(Game game)
         {
-            throw new NotImplementedException();
+            var result = new Result();
+            try
+            {
+                var newGameData = await _repository.GetByIdAsync(game.Id);
+                newGameData.Name = game.Name;
+                newGameData.CreationDate = game.CreationDate;
+                await _repository.UpdateAsync(newGameData);
+                result.ReturnInsert(newGameData);
+            }
+            catch (Exception e)
+            {
+                result.WithError(e.Message);
+            }
+            return result;
         }
     }
 }

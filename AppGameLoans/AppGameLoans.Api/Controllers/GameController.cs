@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AppGameLoans.Domain.Entities;
-using AppGameLoans.Domain.Enum;
 using AppGameLoans.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppGameLoans.Api.Controllers
@@ -11,39 +13,39 @@ namespace AppGameLoans.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class FriendController : Controller
+    public class GameController : Controller
     {
-        private readonly IFriendService _service;
+        private readonly IGameService _service;
 
-        public FriendController(IFriendService service)
+        public GameController(IGameService service)
         {
             _service = service;
         }
 
         [HttpPost]
-        [Authorize(Roles ="Admin")]
-        public async Task<IActionResult> AddFriendAsync([FromBody] Friend newFriend)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> AddNewGame([FromBody] Game newGame)
         {
             try
             {
-                var response = await _service.AddNewFriend(newFriend);
+                var response = await _service.AddNewGame(newGame);
                 return Ok(response.Object);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new ArgumentException(ex.Message);
             }
-         
+
         }
 
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateFriend([FromBody] Friend friend)
+        public async Task<IActionResult> UpdateGame([FromBody] Game game)
         {
             try
             {
-                var response = await _service.UpdateFriend(friend);
+                var response = await _service.UpdateGame(game);
                 return Ok(response.Object);
             }
             catch (Exception ex)
@@ -54,11 +56,11 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAllFriends()
+        public async Task<IActionResult> GetAllGames()
         {
             try
             {
-                var response = await _service.GetFriends();
+                var response = await _service.GetGames();
                 return Ok(response.Object);
             }
             catch (Exception ex)
@@ -70,11 +72,11 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpGet("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetFriendById([FromRoute] Guid id)
+        public async Task<IActionResult> GetGameById([FromRoute] Guid id)
         {
             try
             {
-                var response = await _service.GetFriendById(id);
+                var response = await _service.GetGameById(id);
                 return Json(response.Object);
             }
             catch (Exception ex)
@@ -85,11 +87,11 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> RemoveFriendById([FromRoute] Guid id)
+        public async Task<IActionResult> RemoveGameById([FromRoute] Guid id)
         {
             try
             {
-                var response = await _service.DeleteFriend(id);
+                var response = await _service.DeleteGame(id);
                 return Json(response.Object);
             }
             catch (Exception ex)

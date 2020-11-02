@@ -32,6 +32,8 @@ namespace AppGameLoans.Api
             services.AddControllers();
             services.AddCors();
 
+
+
             services.ConfigureAuthorizationJwt(Configuration);
 
             services.AddMvc()
