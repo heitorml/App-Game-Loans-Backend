@@ -43,19 +43,6 @@ namespace AppGameLoans.Domain.Helpers
             Errors.Add(errorMessage);
         }
 
-        public void WithNotFound(string errorMessage)
-        {
-            HttpStatusCode = HttpStatusCode.NotFound;
-            HasSuccess = false;
-            Errors.Add(errorMessage);
-        }
-
-        public void WithException(string errorMessage)
-        {
-            HttpStatusCode = HttpStatusCode.InternalServerError;
-            HasSuccess = false;
-            Errors.Add(errorMessage);
-        }
 
         public void ReturnInsert(object model)
         {
