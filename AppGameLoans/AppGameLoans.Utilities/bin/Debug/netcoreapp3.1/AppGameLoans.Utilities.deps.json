@@ -9,6 +9,7 @@
       "AppGameLoans.Utilities/1.0.0": {
         "dependencies": {
           "AppGameLoans.Persistence": "1.0.0",
+          "AppGameLoans.Services": "1.0.0",
           "IdentityServer4.AccessTokenValidation": "3.0.1",
           "Microsoft.EntityFrameworkCore": "3.1.9",
           "Microsoft.EntityFrameworkCore.Design": "3.1.9",
@@ -1462,6 +1463,14 @@
         "runtime": {
           "AppGameLoans.Persistence.dll": {}
         }
+      },
+      "AppGameLoans.Services/1.0.0": {
+        "dependencies": {
+          "AppGameLoans.Domain": "1.0.0"
+        },
+        "runtime": {
+          "AppGameLoans.Services.dll": {}
+        }
       }
     }
   },
@@ -2478,6 +2487,11 @@
       "sha512": ""
     },
     "AppGameLoans.Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AppGameLoans.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

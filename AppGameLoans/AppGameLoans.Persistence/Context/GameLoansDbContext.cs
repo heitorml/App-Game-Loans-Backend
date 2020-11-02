@@ -6,6 +6,9 @@ namespace AppGameLoans.Persistence.Context
 {
     public class GameLoansDbContext : DbContext
     {
+
+        public GameLoansDbContext(DbContextOptions<GameLoansDbContext> options) : base(options) { }
+
         public DbSet<Game> Game { get; set; }
         public DbSet<Friend> Friend { get; set; }
         public DbSet<Loan> Loan { get; set; }
@@ -14,6 +17,7 @@ namespace AppGameLoans.Persistence.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.ApplyConfiguration(new GameConfig());
             modelBuilder.ApplyConfiguration(new FriendConfig());
             modelBuilder.ApplyConfiguration(new LoanConfig());

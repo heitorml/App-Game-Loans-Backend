@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AppGameLoans.Domain\AppGameLoans.Domain.csproj" />
+    <ProjectReference Include="..\AppGameLoans.Utilities\AppGameLoans.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,11 @@
 ﻿using AppGameLoans.Domain.Entities;
-using AppGameLoans.Domain.Interface;
+using AppGameLoans.Domain.Interfaces.Repositories;
 using AppGameLoans.Persistence.Context;
 using AppGameLoans.Persistence.Repositories.Base;
 
 namespace AppGameLoans.Persistence.Repositories
 {
-    public class FriendRepository : BaseRepository<Friend>,  IFriendRepository
+    public class FriendRepository : BaseRepository<Friend>, IFriendRepository
     {
         public GameLoansDbContext _dbContext => DatabaseContext as GameLoansDbContext;
 

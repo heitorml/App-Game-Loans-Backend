@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "AppGameLoans.Services/1.0.0": {
+        "dependencies": {
+          "AppGameLoans.Domain": "1.0.0"
+        },
+        "runtime": {
+          "AppGameLoans.Services.dll": {}
+        }
+      },
+      "AppGameLoans.Domain/1.0.0": {
+        "runtime": {
+          "AppGameLoans.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AppGameLoans.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AppGameLoans.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

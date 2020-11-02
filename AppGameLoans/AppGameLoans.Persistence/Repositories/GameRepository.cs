@@ -1,5 +1,5 @@
 ﻿using AppGameLoans.Domain.Entities;
-using AppGameLoans.Domain.Interface;
+using AppGameLoans.Domain.Interfaces.Repositories;
 using AppGameLoans.Persistence.Context;
 using AppGameLoans.Persistence.Repositories.Base;
 

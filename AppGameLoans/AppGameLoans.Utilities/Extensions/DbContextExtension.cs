@@ -10,9 +10,13 @@ namespace AppGameLoans.Utilities.Extension
         public static void ConfigureDbContext(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<GameLoansDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
-                    .UseLazyLoadingProxies());
-
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+                sqlServerOptionsAction : sqlOptions =>
+                {
+                    sqlOptions.EnableRetryOnFailure();
+                }));
+           
+       
         }
     }
 }

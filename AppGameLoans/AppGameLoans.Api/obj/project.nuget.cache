@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vPwtvkfjXqnFI/ElNEMVhx7b5xxbwG1CR+QGwxy+arYOFjSyD02gmYZuTLTTmQWcaH419besQhnQAGa8YV4P4g==",
+  "dgSpecHash": "NJR05y4MZZcxs2WMKQZVh9gt5nt6kAoWY350sn7dy0oPMlTvr90HYrKcMy9SYSKSbwfFs/d/pYqqJdxO2QMiEg==",
   "success": true,
   "projectFilePath": "C:\\PROJETOS\\Teste-Invillia\\App-Game-Loans-Backend\\AppGameLoans\\AppGameLoans.Api\\AppGameLoans.Api.csproj",
   "expectedPackageFiles": [
@@ -18,9 +18,11 @@
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.9\\microsoft.entityframeworkcore.3.1.9.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.9\\microsoft.entityframeworkcore.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.9\\microsoft.entityframeworkcore.analyzers.3.1.9.nupkg.sha512",
+    "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.9\\microsoft.entityframeworkcore.design.3.1.9.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore.proxies\\3.1.9\\microsoft.entityframeworkcore.proxies.3.1.9.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.9\\microsoft.entityframeworkcore.relational.3.1.9.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.9\\microsoft.entityframeworkcore.sqlserver.3.1.9.nupkg.sha512",
+    "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.9\\microsoft.entityframeworkcore.tools.3.1.9.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.9\\microsoft.extensions.caching.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.9\\microsoft.extensions.caching.memory.3.1.9.nupkg.sha512",
     "C:\\Users\\Pichau\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.9\\microsoft.extensions.configuration.3.1.9.nupkg.sha512",
