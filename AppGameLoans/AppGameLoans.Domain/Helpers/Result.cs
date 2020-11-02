@@ -21,12 +21,9 @@ namespace AppGameLoans.Domain.Helpers
     {
         public bool Success { get; protected set; }
         public string Message { get; set; }
-        public bool HasError => !Success;
         public IList<string> Errors { get; set; }
         public HttpStatusCode HttpStatusCode { get; set; }
         public object Object { get; set; }
-        public List<object> Objects { get; set; } = new List<object>();
-        public object Request { get; set; }
         public bool HasSuccess { get; protected set; }
 
         public Result()

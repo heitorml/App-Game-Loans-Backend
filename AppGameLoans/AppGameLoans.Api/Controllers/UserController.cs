@@ -1,10 +1,11 @@
-﻿using AppGameLoans.Domain.Entities;
+﻿using AppGameLoans.Domain.Dto;
 using AppGameLoans.Domain.Interfaces.Services;
 using AppGameLoans.Services.Services;
 using AppGameLoans.Services.Util;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace AppGameLoans.Api.Controllers
@@ -22,7 +23,7 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AddUser([FromBody] User newUser)
+        public async Task<IActionResult> AddUser([FromBody] UserDto newUser)
         {
             try
             {
@@ -31,14 +32,14 @@ namespace AppGameLoans.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
 
         }
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateUser([FromBody] User user)
+        public async Task<IActionResult> UpdateUser([FromBody] UserDto user)
         {
             try
             {
@@ -47,7 +48,7 @@ namespace AppGameLoans.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -62,7 +63,7 @@ namespace AppGameLoans.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -77,7 +78,7 @@ namespace AppGameLoans.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -92,7 +93,7 @@ namespace AppGameLoans.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -100,23 +101,31 @@ namespace AppGameLoans.Api.Controllers
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] User model)
+        public async Task<ActionResult<dynamic>> Authenticate([FromBody] UserDto model)
         {
-            var user = await _service.GetUserByLogin(model);
 
-            if (user == null)
-                return NotFound(new { message = "User not found" });
-
-            if(user.Password != SecurityUtil.GenerateSHA256Hash(model.Password))
-                return NotFound(new { message = "Password incorrect" });
-
-            var token = TokenService.GenerateToken(user);
-            user.Password = "";
-            return new
+            try
             {
-                user = user,
-                token = token
-            };
+                var user = await _service.GetUserByLogin(model);
+
+                if (user == null)
+                    return NotFound(new { message = "User not found" });
+
+                if (user.Password != SecurityUtil.GenerateSHA256Hash(model.Password))
+                    return NotFound(new { message = "Password incorrect" });
+
+                var token = TokenService.GenerateToken(user);
+                user.Password = "";
+                return new
+                {
+                    user = user,
+                    token = token
+                };
+            }
+            catch(Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
         }
     }
 }

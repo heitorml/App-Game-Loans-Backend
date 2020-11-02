@@ -4,25 +4,29 @@ using AppGameLoans.Domain.Interfaces.Repositories;
 using AppGameLoans.Domain.Interfaces.Services;
 using AppGameLoans.Domain.Helpers;
 using System.Threading.Tasks;
+using AutoMapper;
+using AppGameLoans.Domain.Dto;
 
 namespace AppGameLoans.Services.Services
 {
     public class FriendService  : IFriendService
     {
         private readonly IFriendRepository _repository;
-
-        public FriendService(IFriendRepository repository)
+        private readonly IMapper _mapper;
+        public FriendService(IFriendRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<Result> AddNewFriend(Friend entity)
+        public async Task<Result> AddNewFriend(FriendDto entity)
         {
             var result = new Result();
             try
             {
-                await _repository.AddAsync(entity);
-                result.ReturnInsert(entity);
+                var newFriend = _mapper.Map<Friend>(entity);
+                await _repository.AddAsync(newFriend);
+                result.ReturnInsert(newFriend);
             }
             catch (Exception e)
             {
@@ -76,15 +80,13 @@ namespace AppGameLoans.Services.Services
             return result;
         }
 
-        public async Task<Result> UpdateFriend(Friend friend)
+        public async Task<Result> UpdateFriend(FriendDto newFriend)
         {
             var result = new Result();
             try
             {
-                var newFriendData = await _repository.GetByIdAsync(friend.Id);
-                newFriendData.Name = friend.Name;
-                newFriendData.CreationDate = friend.CreationDate;
-                await _repository.UpdateAsync(newFriendData);
+                var newFriendData = await _repository.GetByIdAsync((Guid)newFriend.Id);
+                await _repository.UpdateAsync(_mapper.Map<FriendDto, Friend>(newFriend, newFriendData));
                 result.ReturnInsert(newFriendData);
             }
             catch (Exception e)

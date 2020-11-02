@@ -1,50 +1,48 @@
-﻿using System;
-using System.Net;
-using System.Threading.Tasks;
-using AppGameLoans.Domain.Dto;
-using AppGameLoans.Domain.Entities;
-using AppGameLoans.Domain.Enum;
+﻿using AppGameLoans.Domain.Dto;
 using AppGameLoans.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace AppGameLoans.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
-    public class FriendController : Controller
+    public class LoanController : Controller
     {
-        private readonly IFriendService _service;
+        private readonly ILoanService _service;
 
-        public FriendController(IFriendService service)
+        public LoanController(ILoanService service)
         {
             _service = service;
         }
 
         [HttpPost]
-        [Authorize(Roles ="Admin")]
-        public async Task<IActionResult> AddFriendAsync([FromBody] FriendDto newFriend)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> AddNewGame([FromBody] LoanDto newLoan)
         {
             try
             {
-                var response = await _service.AddNewFriend(newFriend);
+                var response = await _service.AddNewLoan(newLoan);
                 return Ok(response.Object);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
+
         }
 
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateFriend([FromBody] FriendDto friend)
+        public async Task<IActionResult> UpdateLoan([FromBody] LoanDto loan)
         {
             try
             {
-                var response = await _service.UpdateFriend(friend);
+                var response = await _service.UpdateLoan(loan);
                 return Ok(response.Object);
             }
             catch (Exception ex)
@@ -55,11 +53,11 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetAllFriends()
+        public async Task<IActionResult> GetAllLoans()
         {
             try
             {
-                var response = await _service.GetFriends();
+                var response = await _service.GetLoans();
                 return Ok(response.Object);
             }
             catch (Exception ex)
@@ -71,11 +69,11 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpGet("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetFriendById([FromRoute] Guid id)
+        public async Task<IActionResult> GetLoanById([FromRoute] Guid id)
         {
             try
             {
-                var response = await _service.GetFriendById(id);
+                var response = await _service.GetLoanById(id);
                 return Json(response.Object);
             }
             catch (Exception ex)
@@ -86,11 +84,11 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> RemoveFriendById([FromRoute] Guid id)
+        public async Task<IActionResult> RemoveLoanById([FromRoute] Guid id)
         {
             try
             {
-                var response = await _service.DeleteFriend(id);
+                var response = await _service.DeleteLoan(id);
                 return Json(response.Object);
             }
             catch (Exception ex)

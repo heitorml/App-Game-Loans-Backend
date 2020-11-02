@@ -1,7 +1,9 @@
-﻿using AppGameLoans.Domain.Entities;
+﻿using AppGameLoans.Domain.Dto;
+using AppGameLoans.Domain.Entities;
 using AppGameLoans.Domain.Helpers;
 using AppGameLoans.Domain.Interfaces.Repositories;
 using AppGameLoans.Domain.Interfaces.Services;
+using AutoMapper;
 using System;
 using System.Threading.Tasks;
 
@@ -10,17 +12,19 @@ namespace AppGameLoans.Services.Services
     public class GameService : IGameService
     {
         private readonly IGameRepository _repository;
-
-        public GameService(IGameRepository repository)
+        private readonly IMapper _mapper;
+        public GameService(IGameRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<Result> AddNewGame(Game newGame)
+        public async Task<Result> AddNewGame(GameDto entity)
         {
             var result = new Result();
             try
             {
+                var newGame =  _mapper.Map<Game>(entity);
                 await _repository.AddAsync(newGame);
                 result.ReturnInsert(newGame);
             }
@@ -76,14 +80,13 @@ namespace AppGameLoans.Services.Services
             return result;
         }
 
-        public async Task<Result> UpdateGame(Game game)
+        public async Task<Result> UpdateGame(GameDto newGame)
         {
             var result = new Result();
             try
             {
-                var newGameData = await _repository.GetByIdAsync(game.Id);
-                newGameData.Name = game.Name;
-                newGameData.CreationDate = game.CreationDate;
+                var newGameData = await _repository.GetByIdAsync((Guid)newGame.Id);
+                await _repository.UpdateAsync(_mapper.Map<GameDto, Game>(newGame, newGameData));;
                 await _repository.UpdateAsync(newGameData);
                 result.ReturnInsert(newGameData);
             }

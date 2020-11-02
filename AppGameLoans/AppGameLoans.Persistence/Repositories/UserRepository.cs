@@ -1,10 +1,9 @@
-﻿using AppGameLoans.Domain.Entities;
+﻿using AppGameLoans.Domain.Dto;
+using AppGameLoans.Domain.Entities;
 using AppGameLoans.Domain.Interfaces.Repositories;
 using AppGameLoans.Persistence.Context;
 using AppGameLoans.Persistence.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AppGameLoans.Persistence.Repositories
@@ -15,7 +14,7 @@ namespace AppGameLoans.Persistence.Repositories
 
         public UserRepository(GameLoansDbContext context) : base(context) { }
 
-        public async Task<User> GetUserByLogin(User user)
+        public async Task<User> GetUserByLogin(UserDto user)
         {
             return await _dbContext.User.FirstOrDefaultAsync(h => h.Email.Equals(user.Email));
         }

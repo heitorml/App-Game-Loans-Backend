@@ -15,8 +15,6 @@ namespace AppGameLoans.Utilities.Extension
                 {
                     sqlOptions.EnableRetryOnFailure();
                 }));
-           
-       
         }
     }
 }

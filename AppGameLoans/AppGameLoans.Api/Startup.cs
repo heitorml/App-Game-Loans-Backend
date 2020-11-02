@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AppGameLoans.Utilities.Extensions;
 
 namespace AppGameLoans.Api
 {
@@ -29,11 +30,9 @@ namespace AppGameLoans.Api
             services.ConfigureDbContext(Configuration);
             services.RepositoriesSettings();
             services.ServicesSettings();
+            services.AutomapperSettings();
             services.AddControllers();
             services.AddCors();
-
-
-
             services.ConfigureAuthorizationJwt(Configuration);
 
             services.AddMvc()

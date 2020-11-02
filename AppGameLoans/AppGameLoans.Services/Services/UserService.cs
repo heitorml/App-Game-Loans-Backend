@@ -1,8 +1,10 @@
-﻿using AppGameLoans.Domain.Entities;
+﻿using AppGameLoans.Domain.Dto;
+using AppGameLoans.Domain.Entities;
 using AppGameLoans.Domain.Helpers;
 using AppGameLoans.Domain.Interfaces.Repositories;
 using AppGameLoans.Domain.Interfaces.Services;
 using AppGameLoans.Services.Util;
+using AutoMapper;
 using System;
 using System.Threading.Tasks;
 
@@ -11,19 +13,22 @@ namespace AppGameLoans.Services.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _repository;
+        private readonly IMapper _mapper;
         const string DEFAULT_PASSWORD = "user123";
-        public UserService(IUserRepository repository)
+        public UserService(IUserRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<Result> AddNewUser(User user)
+        public async Task<Result> AddNewUser(UserDto user)
         {
             var result = new Result();
             try
             {
                 user.Password = SecurityUtil.GenerateSHA256Hash(user.Password ?? DEFAULT_PASSWORD);
-                await _repository.AddAsync(user);
+                var newUser = _mapper.Map<User>(user);
+                await _repository.AddAsync(newUser);
                 result.ReturnInsert(user);
             }
             catch (Exception e)
@@ -78,15 +83,13 @@ namespace AppGameLoans.Services.Services
             return result;
         }
 
-        public async Task<Result> UpdateUser(User user)
+        public async Task<Result> UpdateUser(UserDto user)
         {
             var result = new Result();
             try
             {
-                var newUserData = await _repository.GetByIdAsync(user.Id);
-                newUserData.Name = user.Name;
-                newUserData.CreationDate = user.CreationDate;
-                await _repository.UpdateAsync(newUserData);
+                var newUserData = await _repository.GetByIdAsync((Guid)user.Id);
+                await _repository.UpdateAsync(_mapper.Map<UserDto, User>(user, newUserData));
                 result.ReturnInsert(newUserData);
             }
             catch (Exception e)
@@ -96,7 +99,7 @@ namespace AppGameLoans.Services.Services
             return result;
         }
 
-        public async Task<User> GetUserByLogin(User user)
+        public async Task<User> GetUserByLogin(UserDto user)
         {
             return await _repository.GetUserByLogin(user);
         }

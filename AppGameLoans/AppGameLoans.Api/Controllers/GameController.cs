@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
-using AppGameLoans.Domain.Entities;
+using AppGameLoans.Domain.Dto;
 using AppGameLoans.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppGameLoans.Api.Controllers
@@ -24,7 +22,7 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AddNewGame([FromBody] Game newGame)
+        public async Task<IActionResult> AddNewGame([FromBody] GameDto newGame)
         {
             try
             {
@@ -33,7 +31,7 @@ namespace AppGameLoans.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
 
         }
@@ -41,7 +39,7 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateGame([FromBody] Game game)
+        public async Task<IActionResult> UpdateGame([FromBody] GameDto game)
         {
             try
             {
@@ -50,7 +48,7 @@ namespace AppGameLoans.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -65,7 +63,7 @@ namespace AppGameLoans.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -81,7 +79,7 @@ namespace AppGameLoans.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 
@@ -92,11 +90,11 @@ namespace AppGameLoans.Api.Controllers
             try
             {
                 var response = await _service.DeleteGame(id);
-                return Json(response.Object);
+                return Ok(response.Object);
             }
             catch (Exception ex)
             {
-                throw new ArgumentException(ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
     }
