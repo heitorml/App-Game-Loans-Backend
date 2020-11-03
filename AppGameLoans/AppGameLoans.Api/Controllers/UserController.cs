@@ -101,7 +101,7 @@ namespace AppGameLoans.Api.Controllers
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] UserDto model)
+        public async Task<ActionResult<dynamic>> Authenticate([FromBody] LoginDto model)
         {
 
             try

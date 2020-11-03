@@ -99,7 +99,7 @@ namespace AppGameLoans.Services.Services
             return result;
         }
 
-        public async Task<User> GetUserByLogin(UserDto user)
+        public async Task<User> GetUserByLogin(LoginDto user)
         {
             return await _repository.GetUserByLogin(user);
         }

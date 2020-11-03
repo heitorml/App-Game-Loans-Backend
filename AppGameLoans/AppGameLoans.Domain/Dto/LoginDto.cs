@@ -5,19 +5,16 @@ using System.Text;
 
 namespace AppGameLoans.Domain.Dto
 {
-    public class UserDto
+    public class LoginDto
     {
-        public Guid? Id { get; set; }
-
-        [StringLength(60, MinimumLength = 5)]
         [Required]
-        [Display(Name = "Name")]
-        public string Name { get; set; }
-
-        [Required]
+        [Display(Name = "E-mail")]
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Password is required.")]
         public string Password { get; set; }
     }
 }

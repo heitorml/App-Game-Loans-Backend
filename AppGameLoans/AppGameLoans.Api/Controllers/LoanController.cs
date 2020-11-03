@@ -21,7 +21,7 @@ namespace AppGameLoans.Api.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> AddNewGame([FromBody] LoanDto newLoan)
+        public async Task<IActionResult> AddNewLoan([FromBody] LoanDto newLoan)
         {
             try
             {

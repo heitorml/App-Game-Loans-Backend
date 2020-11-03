@@ -13,6 +13,6 @@ namespace AppGameLoans.Domain.Interfaces.Services
         Task<Result> GetUsers();
         Task<Result> GetUserById(Guid idUser);
         Task<Result> DeleteUser(Guid idUser);
-        Task<User> GetUserByLogin(UserDto user);
+        Task<User> GetUserByLogin(LoginDto login);
     }
 }

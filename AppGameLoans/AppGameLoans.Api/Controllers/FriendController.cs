@@ -28,8 +28,16 @@ namespace AppGameLoans.Api.Controllers
         {
             try
             {
-                var response = await _service.AddNewFriend(newFriend);
-                return Ok(response.Object);
+                if (ModelState.IsValid)
+                {
+                    var response = await _service.AddNewFriend(newFriend);
+                    return Ok(response.Object);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+                    
             }
             catch(Exception ex)
             {

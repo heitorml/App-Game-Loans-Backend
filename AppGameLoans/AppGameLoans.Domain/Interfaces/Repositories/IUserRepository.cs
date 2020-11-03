@@ -6,6 +6,6 @@ namespace AppGameLoans.Domain.Interfaces.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {
-        Task<User> GetUserByLogin(UserDto user);
+        Task<User> GetUserByLogin(LoginDto user);
     }
 }
