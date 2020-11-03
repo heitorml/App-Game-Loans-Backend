@@ -25,6 +25,7 @@ namespace AppGameLoans.Tests.Services
 
             Mock<IUserRepository> moqRep = new Mock<IUserRepository>();
             Mock<IMapper> moqMapper = new Mock<IMapper>();
+
             UserService service = new UserService(moqRep.Object, moqMapper.Object);
 
             Result result = await service.AddNewUser(user);
@@ -45,7 +46,7 @@ namespace AppGameLoans.Tests.Services
 
             Result result = await service.AddNewUser(user);
 
-            Assert.True(result.HasSuccess);
+            Assert.False(result.HasSuccess);
 
         }
 
@@ -66,7 +67,7 @@ namespace AppGameLoans.Tests.Services
         }
 
         [Fact]
-        public async void DeleteUserInvalid()
+        public async void DeleteUserValid()
         {
             Mock<IUserRepository> moqRep = new Mock<IUserRepository>();
             Mock<IMapper> moqMapper = new Mock<IMapper>();
@@ -75,7 +76,7 @@ namespace AppGameLoans.Tests.Services
 
             Result result = await service.DeleteUser(id);
 
-            Assert.False(!result.HasSuccess);
+            Assert.True(result.HasSuccess);
         }
     }
 }
