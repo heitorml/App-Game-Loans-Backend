@@ -43,7 +43,7 @@ namespace AppGameLoans.Domain.Helpers
 
         public void ReturnInsert(object model)
         {
-            Success = true;
+            HasSuccess = true;
             HttpStatusCode = HttpStatusCode.OK;
             Object = model;
             Message = "Inserido com sucesso";

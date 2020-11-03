@@ -7,7 +7,8 @@ namespace AppGameLoans.Persistence.Context
     public class GameLoansDbContext : DbContext
     {
 
-        public GameLoansDbContext(DbContextOptions<GameLoansDbContext> options) : base(options) { }
+        public GameLoansDbContext(DbContextOptions<GameLoansDbContext> options) : base(options) {
+        }
 
         public DbSet<Game> Game { get; set; }
         public DbSet<Friend> Friend { get; set; }
