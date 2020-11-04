@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AppGameLoans.Tests": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

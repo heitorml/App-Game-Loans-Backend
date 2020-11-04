@@ -1,4 +1,5 @@
 ﻿using AppGameLoans.Domain.Entities;
+using AppGameLoans.Persistence.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,6 +13,8 @@ namespace AppGameLoans.Persistence.ModelConfiguration
             builder.HasKey(h => h.Id);
             builder.Property(h => h.Name).IsRequired();
             builder.Property(h => h.CreationDate);
+
+            builder.HasData(GameSeed.DefaultGames());
         }
     }
 }

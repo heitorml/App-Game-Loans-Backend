@@ -1,7 +1,8 @@
 ﻿using AppGameLoans.Domain.Entities;
+using AppGameLoans.Persistence.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
+
 
 
 namespace AppGameLoans.Persistence.ModelConfiguration
@@ -17,6 +18,8 @@ namespace AppGameLoans.Persistence.ModelConfiguration
             builder.Property(h => h.CreationDate).IsRequired();
             builder.Property(h => h.Name).IsRequired();
             builder.Property(h => h.Password).IsRequired();
+
+            builder.HasData(UserSeed.DefaultUsers());
         }
     }
 }

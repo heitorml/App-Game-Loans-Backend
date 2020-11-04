@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using AppGameLoans.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using AppGameLoans.Persistence.Seeds;
 
 namespace AppGameLoans.Persistence.ModelConfiguration
 {
@@ -12,7 +13,8 @@ namespace AppGameLoans.Persistence.ModelConfiguration
             builder.HasKey(h => h.Id);
             builder.Property(h => h.Name).IsRequired();
             builder.Property(h => h.CreationDate);
-            
+
+            builder.HasData(FriendsSeed.DefaultFriends());
         }
     }
 }

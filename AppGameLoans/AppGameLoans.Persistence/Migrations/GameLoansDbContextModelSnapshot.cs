@@ -35,6 +35,38 @@ namespace AppGameLoans.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Friend");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("093cc1c2-0e67-4017-a90a-3a0a95867c73"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3381),
+                            Name = "Joe Satriani"
+                        },
+                        new
+                        {
+                            Id = new Guid("0fc4fa3b-cf21-4a05-818e-ce226e83baaf"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3829),
+                            Name = "Tom Morelo"
+                        },
+                        new
+                        {
+                            Id = new Guid("05940e95-7d28-401b-8596-f9800083c90a"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3845),
+                            Name = "Steve Vai"
+                        },
+                        new
+                        {
+                            Id = new Guid("63e0f6eb-4141-491c-9fa8-5dd44e9c4469"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3847),
+                            Name = "Brian May"
+                        },
+                        new
+                        {
+                            Id = new Guid("9b45ab2a-bce7-4565-96b2-bc4768932888"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3848),
+                            Name = "Richie Sambora"
+                        });
                 });
 
             modelBuilder.Entity("AppGameLoans.Domain.Entities.Game", b =>
@@ -53,6 +85,38 @@ namespace AppGameLoans.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Game");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("c5ba3c4f-ba5b-46e9-a06b-89a59c181a73"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 258, DateTimeKind.Local).AddTicks(7533),
+                            Name = "Mortal Kombat Ultimate 4"
+                        },
+                        new
+                        {
+                            Id = new Guid("2a14bd95-fabb-49b4-989d-ae992c5bb41c"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 259, DateTimeKind.Local).AddTicks(5387),
+                            Name = "GTA V"
+                        },
+                        new
+                        {
+                            Id = new Guid("beb035c6-13b0-422d-91c6-72cf8b1509f7"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 259, DateTimeKind.Local).AddTicks(5419),
+                            Name = "Super Mario World"
+                        },
+                        new
+                        {
+                            Id = new Guid("af7973bd-6628-42e3-9697-36eac3b496e5"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 259, DateTimeKind.Local).AddTicks(5422),
+                            Name = "Call of Duty - Warzone"
+                        },
+                        new
+                        {
+                            Id = new Guid("bc89ca7a-4369-4fcd-a08d-460f589fb3a8"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 259, DateTimeKind.Local).AddTicks(5424),
+                            Name = "PLAYERUNKNOWN'S BATTLEGROUNDS"
+                        });
                 });
 
             modelBuilder.Entity("AppGameLoans.Domain.Entities.Loan", b =>
@@ -94,7 +158,8 @@ namespace AppGameLoans.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -107,6 +172,17 @@ namespace AppGameLoans.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("49e6fb8c-6776-4361-bad1-9cdcb1dd3872"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 268, DateTimeKind.Local).AddTicks(2535),
+                            Email = "usertest@test.com",
+                            Name = "User Test",
+                            Password = "9abaa0e01aa437fb9b8b1912838581325d63c8af4b5ae69160d45aa528bc39e3",
+                            Profile = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("AppGameLoans.Domain.Entities.Loan", b =>

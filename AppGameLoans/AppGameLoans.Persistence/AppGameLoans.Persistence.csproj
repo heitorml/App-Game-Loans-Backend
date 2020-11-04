@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AppGameLoans.Domain\AppGameLoans.Domain.csproj" />
+    <ProjectReference Include="..\AppGameLoans.Services\AppGameLoans.Services.csproj" />
   </ItemGroup>
 
 </Project>

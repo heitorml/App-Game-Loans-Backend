@@ -11,6 +11,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using AppGameLoans.Utilities.Extensions;
+using AppGameLoans.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppGameLoans.Api
 {
@@ -46,7 +48,7 @@ namespace AppGameLoans.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, GameLoansDbContext dbContext)
         {
             if (env.IsDevelopment() || env.IsStaging())
             {
@@ -74,7 +76,9 @@ namespace AppGameLoans.Api
                 });
                 app.UseHsts();
             }
-                          
+            
+            dbContext.Database.Migrate();
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
@@ -98,6 +102,7 @@ namespace AppGameLoans.Api
             {
                 endpoints.MapControllers();
             });
+          
         }
     }
 }
