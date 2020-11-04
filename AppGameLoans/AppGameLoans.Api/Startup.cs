@@ -77,8 +77,6 @@ namespace AppGameLoans.Api
                 app.UseHsts();
             }
             
-            dbContext.Database.Migrate();
-
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>

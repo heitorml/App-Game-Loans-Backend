@@ -8,6 +8,7 @@ namespace AppGameLoans.Persistence.Context
     {
 
         public GameLoansDbContext(DbContextOptions<GameLoansDbContext> options) : base(options) {
+            Database.Migrate();
         }
 
         public DbSet<Game> Game { get; set; }
