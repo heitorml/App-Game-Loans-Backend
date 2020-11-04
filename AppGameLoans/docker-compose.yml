@@ -2,11 +2,14 @@ version: "3.8"
 services:
     appgameloans:
         image: appgameloans
+        build: 
+            context: .
         ports:
             - "5000:80"
             - "5001:443"
-        build: 
-            context: .
+        networks: 
+            - app-loans-network    
+       
         depends_on: 
             - "sql-server-db"        
 
@@ -15,10 +18,15 @@ services:
         container_name: sql-server-db
         image: mcr.microsoft.com/mssql/server:2017-latest
         ports:
-          - "16379:6379"
+            - "16379:6379"
+        networks: 
+            -  app-loans-network
         environment:
           SA_PASSWORD: "usertest"
           ACCEPT_EULA: "Y"
+networks: 
+    app-loans-network:
+        driver: bridge
 
 
 
