@@ -2,20 +2,23 @@ version: "3.8"
 services:
     appgameloans:
         image: appgameloans
-        build:
-            context: .
         ports:
             - "5000:80"
+            - "5001:443"
+        build: 
+            context: .
         depends_on: 
             - "sql-server-db"        
 
     sql-server-db:
+        build: .
         container_name: sql-server-db
         image: mcr.microsoft.com/mssql/server:2017-latest
         ports:
-          - "1433:1433"
+          - "16379:6379"
         environment:
           SA_PASSWORD: "usertest"
           ACCEPT_EULA: "Y"
+
 
 
