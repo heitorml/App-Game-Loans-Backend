@@ -9,13 +9,13 @@ namespace AppGameLoans.Persistence.Seeds
     {
         public static List<User> DefaultUsers()
         {
-            string passwordDefault = "user123";
+            string passwordDefault = "admin";
             var userList = new List<User>() {
                 new User()
                 {
-                    Email= "usertest@test.com",
+                    Email= "admin@test.com",
                     Password = SecurityUtil.GenerateSHA256Hash(passwordDefault),
-                    Name = "User Test"
+                    Name = "User Admin"
                 }
             };
             return userList;

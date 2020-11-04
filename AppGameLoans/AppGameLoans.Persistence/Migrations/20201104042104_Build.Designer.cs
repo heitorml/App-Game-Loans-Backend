@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppGameLoans.Persistence.Migrations
 {
     [DbContext(typeof(GameLoansDbContext))]
-    [Migration("20201104041044_Build")]
+    [Migration("20201104042104_Build")]
     partial class Build
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,32 +41,32 @@ namespace AppGameLoans.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("093cc1c2-0e67-4017-a90a-3a0a95867c73"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3381),
+                            Id = new Guid("2db7599d-d522-4f3c-9589-460e33090757"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 522, DateTimeKind.Local).AddTicks(2230),
                             Name = "Joe Satriani"
                         },
                         new
                         {
-                            Id = new Guid("0fc4fa3b-cf21-4a05-818e-ce226e83baaf"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3829),
+                            Id = new Guid("a6d7a298-55ba-409c-8fd7-1f24bbf21da9"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 522, DateTimeKind.Local).AddTicks(2552),
                             Name = "Tom Morelo"
                         },
                         new
                         {
-                            Id = new Guid("05940e95-7d28-401b-8596-f9800083c90a"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3845),
+                            Id = new Guid("fece43b1-0ae5-498f-b5bc-b979c573d7ff"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 522, DateTimeKind.Local).AddTicks(2565),
                             Name = "Steve Vai"
                         },
                         new
                         {
-                            Id = new Guid("63e0f6eb-4141-491c-9fa8-5dd44e9c4469"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3847),
+                            Id = new Guid("b877459a-94b1-47a0-9201-d01569cbd61f"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 522, DateTimeKind.Local).AddTicks(2566),
                             Name = "Brian May"
                         },
                         new
                         {
-                            Id = new Guid("9b45ab2a-bce7-4565-96b2-bc4768932888"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 261, DateTimeKind.Local).AddTicks(3848),
+                            Id = new Guid("d72947f5-9ec7-4125-8e62-d55967f36c52"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 522, DateTimeKind.Local).AddTicks(2568),
                             Name = "Richie Sambora"
                         });
                 });
@@ -91,32 +91,32 @@ namespace AppGameLoans.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c5ba3c4f-ba5b-46e9-a06b-89a59c181a73"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 258, DateTimeKind.Local).AddTicks(7533),
+                            Id = new Guid("a0ecfccd-5a0e-4ed6-bdb3-8ae14fc25a9d"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 519, DateTimeKind.Local).AddTicks(8126),
                             Name = "Mortal Kombat Ultimate 4"
                         },
                         new
                         {
-                            Id = new Guid("2a14bd95-fabb-49b4-989d-ae992c5bb41c"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 259, DateTimeKind.Local).AddTicks(5387),
+                            Id = new Guid("2c23a263-8807-4e73-ab5c-2819446ca172"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 520, DateTimeKind.Local).AddTicks(5628),
                             Name = "GTA V"
                         },
                         new
                         {
-                            Id = new Guid("beb035c6-13b0-422d-91c6-72cf8b1509f7"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 259, DateTimeKind.Local).AddTicks(5419),
+                            Id = new Guid("c650a681-b2d0-4ce4-b562-96bfa49b26c9"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 520, DateTimeKind.Local).AddTicks(5656),
                             Name = "Super Mario World"
                         },
                         new
                         {
-                            Id = new Guid("af7973bd-6628-42e3-9697-36eac3b496e5"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 259, DateTimeKind.Local).AddTicks(5422),
+                            Id = new Guid("84888a8d-324a-49de-a0c3-21d9750c1948"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 520, DateTimeKind.Local).AddTicks(5658),
                             Name = "Call of Duty - Warzone"
                         },
                         new
                         {
-                            Id = new Guid("bc89ca7a-4369-4fcd-a08d-460f589fb3a8"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 259, DateTimeKind.Local).AddTicks(5424),
+                            Id = new Guid("86a039ba-234f-462a-ad97-7db821d9ee7a"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 520, DateTimeKind.Local).AddTicks(5671),
                             Name = "PLAYERUNKNOWN'S BATTLEGROUNDS"
                         });
                 });
@@ -178,11 +178,11 @@ namespace AppGameLoans.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("49e6fb8c-6776-4361-bad1-9cdcb1dd3872"),
-                            CreationDate = new DateTime(2020, 11, 4, 1, 10, 44, 268, DateTimeKind.Local).AddTicks(2535),
-                            Email = "usertest@test.com",
-                            Name = "User Test",
-                            Password = "9abaa0e01aa437fb9b8b1912838581325d63c8af4b5ae69160d45aa528bc39e3",
+                            Id = new Guid("3396d7c9-461d-4121-9a8e-c5fd657c28c3"),
+                            CreationDate = new DateTime(2020, 11, 4, 1, 21, 4, 527, DateTimeKind.Local).AddTicks(948),
+                            Email = "admin@test.com",
+                            Name = "User Admin",
+                            Password = "86de0ef85623ee4d916f4b9d6e19d8b60fcf978753fc7a29dd10df582a87272c",
                             Profile = "Admin"
                         });
                 });
