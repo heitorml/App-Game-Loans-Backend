@@ -20,3 +20,6 @@ Game loan management system. Invillia Technical Evaluation.
 * Entity Framework Core 3.1.9
 * Swagger UI 5.6.3
 * SqlServer Express
+* Jwt 
+* AutoMapper
+
