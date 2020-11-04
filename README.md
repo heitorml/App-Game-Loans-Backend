@@ -1,12 +1,6 @@
 # App-Game-Loans-Backend
 Game loan management system. Invillia Technical Evaluation.
 
-
-
-<!-- # What is GTracker?
-It's an open source project, written in .NET Core, currently in version 3.1.
-The project's goals is to organize eletronic games and manage its loans to friends and others. -->
-
 ## How to use:
 ### Requisits
 * Docker installed (click [here](https://docs.docker.com/get-docker/) to see how to install)
@@ -23,11 +17,6 @@ The project's goals is to organize eletronic games and manage its loans to frien
 
 ## Technologies implemented:
 * ASP.NET Core 3.1 (with .NET Core 3.1)
-* Entity Framework Core 3.1.5
-* Swagger UI 5.5.0
-
-<!-- ## Architecture:
-* Domain Driven Design
-* Repository Pattern
-* Notification Pattern
-* Mapper by Extension Methods -->
+* Entity Framework Core 3.1.9
+* Swagger UI 5.6.3
+* SqlServer Express
