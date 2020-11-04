@@ -26,8 +26,8 @@ The project's goals is to organize eletronic games and manage its loans to frien
 * Entity Framework Core 3.1.5
 * Swagger UI 5.5.0
 
-## Architecture:
+<!-- ## Architecture:
 * Domain Driven Design
 * Repository Pattern
 * Notification Pattern
-* Mapper by Extension Methods
+* Mapper by Extension Methods -->
